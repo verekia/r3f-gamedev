@@ -2,23 +2,6 @@ import { Html, OrbitControls } from '@react-three/drei/core'
 import { Canvas, useFrame } from '@react-three/fiber/webgpu'
 import { useRef } from 'react'
 
-let position = { x: 0, y: 0 }
-
-const Ui = () => {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useFrame(
-    () => {
-      if (ref.current) {
-        ref.current.innerText = `${position.x.toFixed(2)}, ${position.y.toFixed(2)}`
-      }
-    },
-    { fps: 10 }
-  )
-
-  return <div ref={ref} className="fixed top-4 right-4 tabular-nums" />
-}
-
 const Character = ({ x }: { x: number }) => {
   const healthRef = useRef<HTMLDivElement>(null)
 
