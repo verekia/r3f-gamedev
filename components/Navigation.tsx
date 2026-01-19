@@ -4,6 +4,7 @@ const pages = [
   { name: 'UI useFrame', href: '/ui-useframe' },
   { name: 'Reactive Polling', href: '/reactive-polling' },
   { name: 'Smooth Interpolation', href: '/smooth-interpolation' },
+  { name: 'Bone Attachment', href: '/bone-attachment' },
 ]
 
 export const Navigation = ({ defaultOpen = false }: { defaultOpen?: boolean }) => {

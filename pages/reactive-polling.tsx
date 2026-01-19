@@ -16,7 +16,7 @@ const useReactive = <T,>(selector: () => T, fps = 30): T => {
         setReactiveValue(newValue)
       }
     },
-    { fps },
+    { fps }
   )
 
   return reactiveValue
@@ -61,6 +61,6 @@ const ReactivePollingPage = () => (
 
 ReactivePollingPage.title = 'Reactive Polling'
 ReactivePollingPage.description =
-  'Sometimes, a reactive state helps keep your components simple. useReactive is a hook that polls for changes of any value and rerenders your component. Use sparingly for things that don\'t change too often.'
+  "Sometimes, a reactive state helps keep your components simple. useReactive is a hook that polls for changes of any value and rerenders your component. Use sparingly for things that don't change too often."
 
 export default ReactivePollingPage
