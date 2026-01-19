@@ -48,7 +48,7 @@ const MovementSystem = () => {
 
 const UiUseframePage = () => (
   <>
-    <Canvas className="h-full">
+    <Canvas>
       <Box />
     </Canvas>
     <MovementSystem />

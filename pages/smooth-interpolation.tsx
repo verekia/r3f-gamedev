@@ -47,7 +47,7 @@ const MovementSystem = () => {
 
 const SmoothInterpolationPage = () => (
   <>
-    <Canvas className="h-full">
+    <Canvas>
       <Box />
     </Canvas>
     <MovementSystem />

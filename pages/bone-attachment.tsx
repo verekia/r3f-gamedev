@@ -75,7 +75,7 @@ const Character = () => {
 
 const BoneAttachmentPage = () => (
   <>
-    <Canvas className="h-full">
+    <Canvas>
       <Character />
       <OrbitControls />
     </Canvas>

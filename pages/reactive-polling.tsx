@@ -52,7 +52,7 @@ const MovementSystem = () => {
 
 const ReactivePollingPage = () => (
   <>
-    <Canvas className="h-full">
+    <Canvas>
       <Box />
     </Canvas>
     <MovementSystem />

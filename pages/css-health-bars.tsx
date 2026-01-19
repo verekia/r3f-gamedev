@@ -30,7 +30,7 @@ const Character = ({ x }: { x: number }) => {
 
 const CssHealthBarsPage = () => (
   <>
-    <Canvas className="h-full">
+    <Canvas>
       <Character x={-2} />
       <Character x={0} />
       <Character x={2} />
