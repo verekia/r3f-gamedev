@@ -2,6 +2,7 @@ import { Canvas, useUniforms, useNodes, useLocalNodes, useFrame } from '@react-t
 import { OrbitControls } from '@react-three/drei/core'
 import { Fn, vec3, sin, time, positionLocal, normalLocal } from 'three/tsl'
 import { useRef } from 'react'
+import { PageWithMeta } from './_app'
 
 const GlobalEffects = () => {
   useNodes(() => ({
@@ -38,7 +39,7 @@ const UI = () => {
   return <div ref={ref} style={{ position: 'fixed', top: 20, right: 20 }} />
 }
 
-const RedPage = () => (
+const RedPage: PageWithMeta = () => (
   <>
     <Canvas style={{ height: '100vh' }}>
       <OrbitControls />
@@ -46,6 +47,17 @@ const RedPage = () => (
       <WobblySphere />
     </Canvas>
     <UI />
+  </>
+)
+
+RedPage.title = 'Red Wobble'
+RedPage.description = (
+  <>
+    A wobbly sphere using TSL. See the{' '}
+    <a href="https://threejs.org/docs/#api/en/nodes/Nodes" className="underline">
+      Three.js TSL docs
+    </a>
+    .
   </>
 )
 

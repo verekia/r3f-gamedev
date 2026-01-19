@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 const pages = [
-  { name: 'Red', href: '/red' },
+  { name: 'UI useFrame', href: '/ui-useframe' },
   { name: 'Blue', href: '/blue' },
   { name: 'Green', href: '/green' },
 ]
