@@ -5,6 +5,7 @@ const pages = [
   { name: 'Smooth Interpolation', href: '/smooth-interpolation' },
   { name: 'Bone Attachment', href: '/bone-attachment' },
   { name: 'Camera Shake', href: '/camera-shake' },
+  { name: 'Weapon Trail', href: '/weapon-trail' },
   { name: 'Zustand Entities', href: '/zustand-entities' },
   { name: 'Reactive Polling', href: '/reactive-polling' },
   { name: 'UI useFrame', href: '/ui-useframe' },
@@ -41,7 +42,7 @@ export const Navigation = ({ defaultOpen = false }: { defaultOpen?: boolean }) =
 
       <dialog
         ref={dialogRef}
-        className="h-screen max-h-[100vh] w-screen max-w-[100vw] border-none bg-transparent p-0"
+        className="h-screen max-h-screen w-screen max-w-[100vw] border-none bg-transparent p-0"
         onClick={e => e.target === dialogRef.current && closeDialog()}
       >
         <div className="fixed top-0 left-0 box-border h-screen w-[250px] bg-[#000000] p-5 text-white">

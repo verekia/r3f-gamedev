@@ -80,6 +80,7 @@ const CssHealthBarsPage = () => (
 )
 
 CssHealthBarsPage.title = 'Zustand Entities'
-CssHealthBarsPage.description = 'Uses Zustand to manage entities. Re-rendering happens when entities are added to or removed from the store\s array. Simple but the downside is that you need to explicitly tell systems what entities to iterate over. Use memo() to make sure the individual entities are not re-rendered when the array of entities changes.'
+CssHealthBarsPage.description =
+  'Uses Zustand to manage entities. Re-rendering happens when entities are added to or removed from the store\s array. Simple but the downside is that you need to explicitly tell systems what entities to iterate over. Use memo() to make sure the individual entities are not re-rendered when the array of entities changes.'
 
 export default CssHealthBarsPage
