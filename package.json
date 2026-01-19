@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "serve out",
+    "postinstall": "bun typegen",
+    "typegen": "next typegen",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@react-three/drei": "11.0.0-alpha.4",
+    "@react-three/fiber": "10.0.0-alpha.1",
+    "husky": "9.1.7",
+    "next": "16.1.2",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "three": "0.182.0"
+  },
+  "devDependencies": {
+    "@types/node": "25.0.9",
+    "@types/react": "19.2.8",
+    "@types/react-dom": "19.2.3",
+    "@types/three": "0.182.0",
+    "babel-plugin-react-compiler": "1.0.0",
+    "serve": "14.2.5",
+    "typescript": "5.9.3"
+  },
+  "patchedDependencies": {
+    "three@0.182.0": "patches/three@0.182.0.patch",
+    "detect-gpu@5.0.70": "patches/detect-gpu@5.0.70.patch"
+  },
+  "overrides": {
+    "three": "0.182.0"
+  }
+}
