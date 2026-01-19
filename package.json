@@ -7,7 +7,8 @@
     "start": "serve out",
     "postinstall": "bun typegen",
     "typegen": "next typegen",
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mjs,json,css,md}\""
   },
   "dependencies": {
     "@react-three/drei": "11.0.0-alpha.4",
@@ -19,12 +20,16 @@
     "three": "0.182.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "4.1.18",
     "@types/node": "25.0.9",
     "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
     "@types/three": "0.182.0",
     "babel-plugin-react-compiler": "1.0.0",
+    "postcss": "8.5.6",
+    "prettier-plugin-tailwindcss": "0.7.2",
     "serve": "14.2.5",
+    "tailwindcss": "4.1.18",
     "typescript": "5.9.3"
   },
   "patchedDependencies": {
