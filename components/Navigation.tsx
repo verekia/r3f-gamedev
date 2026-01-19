@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react'
 const pages = [
   { name: 'UI useFrame', href: '/ui-useframe' },
   { name: 'Reactive Polling', href: '/reactive-polling' },
+  { name: 'Smooth Interpolation', href: '/smooth-interpolation' },
 ]
 
 export const Navigation = ({ defaultOpen = false }: { defaultOpen?: boolean }) => {
