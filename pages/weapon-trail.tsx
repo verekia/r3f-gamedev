@@ -15,6 +15,8 @@ import {
 const SEGMENTS = 20
 const FADE_DURATION = 0.3
 
+// ⚠️ This one was vibe-coded
+
 const Trail = ({
   target,
   points,
