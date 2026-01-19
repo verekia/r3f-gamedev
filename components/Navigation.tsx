@@ -2,8 +2,7 @@ import { useEffect, useRef } from 'react'
 
 const pages = [
   { name: 'UI useFrame', href: '/ui-useframe' },
-  { name: 'Blue', href: '/blue' },
-  { name: 'Green', href: '/green' },
+  { name: 'Reactive Polling', href: '/reactive-polling' },
 ]
 
 export const Navigation = ({ defaultOpen = false }: { defaultOpen?: boolean }) => {
