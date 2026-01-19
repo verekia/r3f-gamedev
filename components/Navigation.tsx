@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react'
 
 const pages = [
-  { name: 'UI useFrame', href: '/ui-useframe' },
-  { name: 'Reactive Polling', href: '/reactive-polling' },
+  { name: 'CSS Health Bars', href: '/css-health-bars' },
   { name: 'Smooth Interpolation', href: '/smooth-interpolation' },
   { name: 'Bone Attachment', href: '/bone-attachment' },
+  { name: 'Reactive Polling', href: '/reactive-polling' },
+  { name: 'UI useFrame', href: '/ui-useframe' },
 ]
 
 export const Navigation = ({ defaultOpen = false }: { defaultOpen?: boolean }) => {
