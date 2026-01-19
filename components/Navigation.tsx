@@ -4,6 +4,7 @@ const pages = [
   { name: 'CSS Health Bars', href: '/css-health-bars' },
   { name: 'Smooth Interpolation', href: '/smooth-interpolation' },
   { name: 'Bone Attachment', href: '/bone-attachment' },
+  { name: 'Camera Shake', href: '/camera-shake' },
   { name: 'Zustand Entities', href: '/zustand-entities' },
   { name: 'Reactive Polling', href: '/reactive-polling' },
   { name: 'UI useFrame', href: '/ui-useframe' },
