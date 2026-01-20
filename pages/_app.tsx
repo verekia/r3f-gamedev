@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Navigation defaultOpen={router.pathname === '/'} />
       <Component {...pageProps} />
       {(title || description) && (
-        <div className="fixed right-0 bottom-0 left-0 bg-black/70 p-4">
+        <footer className="fixed right-0 bottom-0 left-0 bg-black/70 p-4">
           {title && (
             <div className="flex items-center gap-3">
               <h1 className="text-lg font-bold">{title}</h1>
@@ -41,7 +41,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             </div>
           )}
           {description && <div className="mt-1 text-sm text-white/70">{description}</div>}
-        </div>
+        </footer>
       )}
     </>
   )

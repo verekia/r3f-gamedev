@@ -1,14 +1,31 @@
 import { useEffect, useRef } from 'react'
 
-const pages = [
-  { name: 'CSS Health Bars', href: '/css-health-bars' },
-  { name: 'Smooth Interpolation', href: '/smooth-interpolation' },
-  { name: 'Bone Attachment', href: '/bone-attachment' },
-  { name: 'Camera Shake', href: '/camera-shake' },
-  { name: 'Weapon Trail', href: '/weapon-trail' },
-  { name: 'Zustand Entities', href: '/zustand-entities' },
-  { name: 'Reactive Polling', href: '/reactive-polling' },
-  { name: 'UI useFrame', href: '/ui-useframe' },
+const sections = [
+  {
+    title: 'Visuals',
+    pages: [
+      { name: 'Camera Shake', href: '/camera-shake' },
+      { name: 'Weapon Trail', href: '/weapon-trail' },
+      { name: 'CSS Health Bars', href: '/css-health-bars' },
+    ],
+  },
+
+  {
+    title: 'Techniques',
+    pages: [
+      { name: 'Bone Attachment', href: '/bone-attachment' },
+      { name: 'Reactive Polling', href: '/reactive-polling' },
+      { name: 'Smooth Interpolation', href: '/smooth-interpolation' },
+      { name: 'UI useFrame', href: '/ui-useframe' },
+    ],
+  },
+  {
+    title: 'ECS / Entities',
+    pages: [
+      { name: 'Miniplex', href: '/miniplex' },
+      { name: 'Zustand', href: '/zustand' },
+    ],
+  },
 ]
 
 export const Navigation = ({ defaultOpen = false }: { defaultOpen?: boolean }) => {
@@ -54,15 +71,20 @@ export const Navigation = ({ defaultOpen = false }: { defaultOpen?: boolean }) =
             ✕
           </button>
           <nav className="mt-10">
-            <ul className="m-0 list-none p-0">
-              {pages.map(page => (
-                <li key={page.href} className="mb-3">
-                  <a href={page.href} className="block py-2 text-lg no-underline">
-                    {page.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {sections.map(section => (
+              <div key={section.title} className="mb-6">
+                <h3 className="mb-2 text-sm font-semibold tracking-wider text-gray-400 uppercase">{section.title}</h3>
+                <ul className="m-0 list-none p-0">
+                  {section.pages.map(page => (
+                    <li key={page.href} className="mb-1">
+                      <a href={page.href} className="block py-1.5 text-lg no-underline">
+                        {page.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </nav>
         </div>
       </dialog>

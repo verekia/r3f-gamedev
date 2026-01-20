@@ -14,6 +14,8 @@ const defaultState = {
 }
 
 const useWorldStore = create<typeof defaultState>(() => defaultState)
+const getWorld = useWorldStore.getState
+const setWorld = useWorldStore.setState
 
 const Character = ({ character }: { character: CharacterEntity }) => {
   const ref = useRef<Mesh>(null)
@@ -38,12 +40,12 @@ const CharacterMemo = memo(Character)
 const SpawnSystem = () => {
   useEffect(() => {
     const interval = setInterval(() => {
-      useWorldStore.setState(s => ({
-        characters: [
-          ...s.characters.filter((_, index) => index < 10),
-          { id: Math.random(), position: { x: Math.random() * 6 - 3, y: Math.random() * 2 - 1 } },
-        ],
-      }))
+      let newCharacters = [...getWorld().characters]
+      if (newCharacters.length >= 10) {
+        newCharacters = newCharacters.slice(1)
+      }
+      newCharacters.push({ id: Math.random(), position: { x: Math.random() * 6 - 3, y: Math.random() * 2 - 1 } })
+      setWorld({ characters: newCharacters })
     }, 1000)
 
     return () => clearInterval(interval)
@@ -68,7 +70,7 @@ const CharacterEntities = () => {
   return characters.map(character => <CharacterMemo key={character.id} character={character} />)
 }
 
-const CssHealthBarsPage = () => (
+const ZustandPage = () => (
   <>
     <Canvas>
       <CharacterEntities />
@@ -79,8 +81,17 @@ const CssHealthBarsPage = () => (
   </>
 )
 
-CssHealthBarsPage.title = 'Zustand Entities'
-CssHealthBarsPage.description =
-  'Uses Zustand to manage entities. Re-rendering happens when entities are added to or removed from the store\s array. Simple but the downside is that you need to explicitly tell systems what entities to iterate over. Use memo() to make sure the individual entities are not re-rendered when the array of entities changes.'
+ZustandPage.title = 'Zustand'
+ZustandPage.description = (
+  <>
+    Uses{' '}
+    <a href="https://github.com/pmndrs/zustand" target="_blank">
+      Zustand
+    </a>{' '}
+    to manage entities. Re-rendering happens when entities are added to or removed from the store\s array. Simple but
+    the downside is that you need to explicitly tell systems what entities to iterate over. Use memo() to make sure the
+    individual entities are not re-rendered when the array of entities changes.
+  </>
+)
 
-export default CssHealthBarsPage
+export default ZustandPage
