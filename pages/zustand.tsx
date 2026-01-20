@@ -88,8 +88,8 @@ ZustandPage.description = (
     <a href="https://github.com/pmndrs/zustand" target="_blank">
       Zustand
     </a>{' '}
-    to manage entities. Not a real ECS. Re-rendering happens when entities are added to or removed from the store's array. Simple but
-    the downside is that you need to explicitly tell systems what entities to iterate over.
+    to manage entities. Not a real ECS. Re-rendering happens when entities are added to or removed from the store's
+    array. Simple but the downside is that you need to explicitly tell systems what entities to iterate over.
   </>
 )
 

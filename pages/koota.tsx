@@ -81,7 +81,8 @@ KootaPage.description = (
     <a href="https://github.com/pmndrs/koota" target="_blank">
       Koota
     </a>{' '}
-    to manage entities. Koota is a data-oriented ECS with relations and React bindings. Define traits to query your entities, and react to their updates in your React components.
+    to manage entities. Koota is a data-oriented ECS with relations and React bindings. Define traits to query your
+    entities, and react to their updates in your React components.
   </>
 )
 
