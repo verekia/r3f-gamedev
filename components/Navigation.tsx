@@ -4,7 +4,8 @@ const sections = [
   {
     title: 'Visuals',
     pages: [
-      { name: 'CSS Health Bars', href: '/css-health-bars' },
+      { name: 'Health Bars', href: '/health-bars' },
+      { name: 'Damage Numbers', href: '/damage-numbers' },
       { name: 'Camera Shake', href: '/camera-shake' },
       { name: 'Weapon Trail', href: '/weapon-trail' },
     ],

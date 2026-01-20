@@ -28,7 +28,7 @@ const Character = ({ x }: { x: number }) => {
   )
 }
 
-const CssHealthBarsPage = () => (
+const HealthBarsPage = () => (
   <>
     <Canvas>
       <Character x={-2} />
@@ -39,7 +39,7 @@ const CssHealthBarsPage = () => (
   </>
 )
 
-CssHealthBarsPage.title = 'CSS Health Bars'
-CssHealthBarsPage.description = 'Use Drei Html to render health bars that you can style with CSS.'
+HealthBarsPage.title = 'Health Bars'
+HealthBarsPage.description = 'Use Drei Html to render health bars that you can style with CSS.'
 
-export default CssHealthBarsPage
+export default HealthBarsPage
