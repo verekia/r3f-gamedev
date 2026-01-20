@@ -6,8 +6,9 @@ const sections = [
     pages: [
       { name: 'Health Bars', href: '/health-bars' },
       { name: 'Damage Numbers', href: '/damage-numbers' },
-      { name: 'Camera Shake', href: '/camera-shake' },
       { name: 'Weapon Trail', href: '/weapon-trail' },
+      { name: 'Camera Shake', href: '/camera-shake' },
+      { name: 'Pushback', href: '/pushback' },
     ],
   },
 
