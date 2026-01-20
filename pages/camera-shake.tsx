@@ -1,27 +1,24 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber/webgpu'
 import { useEffect } from 'react'
-import { Vector3 } from 'three'
 
-const basePosition = new Vector3(0, 0, 5)
-
-const offset = { x: 0, y: 0 }
+const rotationOffset = { x: 0, z: 0 }
 
 const addSmoothExp = (current: number, target: number, speed: number, dt: number) =>
   (target - current) * (1 - Math.exp(-speed * dt))
 
-const shake = (intensity = 0.5) => {
-  offset.x = (Math.random() - 0.3) * intensity
-  offset.y = (Math.random() - 0.3) * intensity
+const shake = (intensity = 0.05) => {
+  rotationOffset.x = (Math.random() - 0.5) * intensity
+  rotationOffset.z = (Math.random() - 0.5) * intensity
 }
 
 const CameraShake = () => {
   const { camera } = useThree()
 
   useFrame((_, delta) => {
-    offset.x += addSmoothExp(offset.x, 0, 10, delta)
-    offset.y += addSmoothExp(offset.y, 0, 10, delta)
-    camera.position.x = basePosition.x + offset.x
-    camera.position.y = basePosition.y + offset.y
+    rotationOffset.x += addSmoothExp(rotationOffset.x, 0, 10, delta)
+    rotationOffset.z += addSmoothExp(rotationOffset.z, 0, 10, delta)
+    camera.rotation.x = rotationOffset.x
+    camera.rotation.z = rotationOffset.z
   })
 
   return null
@@ -29,7 +26,7 @@ const CameraShake = () => {
 
 const ShakeTrigger = () => {
   useEffect(() => {
-    const interval = setInterval(() => shake(0.5), 1000)
+    const interval = setInterval(() => shake(0.05), 1000)
     return () => clearInterval(interval)
   }, [])
 
@@ -59,6 +56,6 @@ const CameraShakePage = () => (
 
 CameraShakePage.title = 'Camera Shake'
 CameraShakePage.description =
-  'Instantly offset the camera and smoothly return to the base position using exponential decay. Useful for visual feedback when the player gets hit.'
+  'Instantly rotate the camera on X (pitch) and Z (roll) axes and smoothly return to the base rotation using exponential decay. Useful for visual feedback when the player gets hit.'
 
 export default CameraShakePage
