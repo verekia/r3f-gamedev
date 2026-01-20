@@ -43,21 +43,14 @@ const DamageNumbers = () => {
       {damages.map(damage => (
         <Html key={damage.id} center position={[damage.x, damage.y, 0]}>
           <div
-            className="pointer-events-none flex flex-col items-center whitespace-nowrap text-center text-white"
+            className="pointer-events-none flex flex-col items-center text-center whitespace-nowrap text-white"
             style={{
-              textShadow:
-                '0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black',
+              textShadow: '0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black',
               animation: 'damageNumber 1.3s ease-out forwards',
             }}
           >
-            <div
-              className={damage.isCrit ? 'text-5xl font-bold' : 'text-3xl font-bold'}
-            >
-              {damage.value}
-            </div>
-            {damage.isCrit && (
-              <div className="-mt-1 text-4xl font-bold text-red-500">CRIT</div>
-            )}
+            <div className={damage.isCrit ? 'text-5xl font-bold' : 'text-3xl font-bold'}>{damage.value}</div>
+            {damage.isCrit && <div className="-mt-1 text-4xl font-bold text-red-500">CRIT</div>}
           </div>
         </Html>
       ))}
@@ -74,7 +67,6 @@ const DamageNumbersPage = () => (
 )
 
 DamageNumbersPage.title = 'Damage Numbers'
-DamageNumbersPage.description =
-  'Use Drei Html to render floating damage numbers with CSS animations.'
+DamageNumbersPage.description = 'Use Drei Html to render floating damage numbers with CSS animations.'
 
 export default DamageNumbersPage
