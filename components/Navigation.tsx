@@ -4,9 +4,9 @@ const sections = [
   {
     title: 'Visuals',
     pages: [
+      { name: 'CSS Health Bars', href: '/css-health-bars' },
       { name: 'Camera Shake', href: '/camera-shake' },
       { name: 'Weapon Trail', href: '/weapon-trail' },
-      { name: 'CSS Health Bars', href: '/css-health-bars' },
     ],
   },
 
@@ -14,8 +14,8 @@ const sections = [
     title: 'Techniques',
     pages: [
       { name: 'Bone Attachment', href: '/bone-attachment' },
-      { name: 'Reactive Polling', href: '/reactive-polling' },
       { name: 'Smooth Interpolation', href: '/smooth-interpolation' },
+      { name: 'Reactive Polling', href: '/reactive-polling' },
       { name: 'UI useFrame', href: '/ui-useframe' },
     ],
   },
