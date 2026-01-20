@@ -11,6 +11,7 @@ Open the pages/ folder to browse the code. Demos available on [**r3f-gamedev.v1v
 - [Weapon Trail](https://r3f-gamedev.v1v2.io/weapon-trail)
 - [Camera Shake](https://r3f-gamedev.v1v2.io/camera-shake)
 - [Pushback](https://r3f-gamedev.v1v2.io/pushback)
+- [Low Health](https://r3f-gamedev.v1v2.io/low-health)
 
 ## Techniques
 

@@ -9,6 +9,7 @@ const sections = [
       { name: 'Weapon Trail', href: '/weapon-trail' },
       { name: 'Camera Shake', href: '/camera-shake' },
       { name: 'Pushback', href: '/pushback' },
+      { name: 'Low Health', href: '/low-health' },
     ],
   },
 

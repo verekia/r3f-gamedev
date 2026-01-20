@@ -17,6 +17,15 @@ footer a {
   text-decoration: underline;
 }
 
+@keyframes low-health-opacity {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
 @keyframes damageNumber {
   0% {
     opacity: 1;
