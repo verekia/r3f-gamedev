@@ -12,10 +12,41 @@ import {
   Vector3,
 } from 'three'
 
-const SEGMENTS = 20
+const SEGMENT_COUNT = 20
 const FADE_DURATION = 0.3
 
-// ⚠️ This one was vibe-coded
+// ⚠️ Vibe coded
+
+const createTrailGeometry = (pointCount: number) => {
+  const geometry = new BufferGeometry()
+  const vertexCount = pointCount * SEGMENT_COUNT
+
+  geometry.setAttribute('position', new BufferAttribute(new Float32Array(vertexCount * 3), 3))
+
+  const uvs = new Float32Array(vertexCount * 2)
+  for (let segment = 0; segment < SEGMENT_COUNT; segment++) {
+    for (let point = 0; point < pointCount; point++) {
+      const index = (segment * pointCount + point) * 2
+      uvs[index] = point / (pointCount - 1) // u: 0 at base, 1 at tip
+      uvs[index + 1] = segment / SEGMENT_COUNT // v: 0 at newest, 1 at oldest
+    }
+  }
+  geometry.setAttribute('uv', new BufferAttribute(uvs, 2))
+
+  const indices: number[] = []
+  for (let segment = 0; segment < SEGMENT_COUNT - 1; segment++) {
+    for (let point = 0; point < pointCount - 1; point++) {
+      const topLeft = segment * pointCount + point
+      const topRight = topLeft + 1
+      const bottomLeft = (segment + 1) * pointCount + point
+      const bottomRight = bottomLeft + 1
+      indices.push(topLeft, bottomLeft, topRight, topRight, bottomLeft, bottomRight)
+    }
+  }
+  geometry.setIndex(indices)
+
+  return geometry
+}
 
 const Trail = ({
   target,
@@ -26,92 +57,82 @@ const Trail = ({
   points: Vector3[]
   enabled: boolean
 }) => {
-  const meshRef = useRef<Mesh>(null)
-  const history = useRef<Vector3[][]>([])
-  const opacity = useRef(1)
+  const meshRef = useRef<Mesh<BufferGeometry, MeshBasicMaterial>>(null)
   const [visible, setVisible] = useState(true)
 
   const alphaMap = useLoader(TextureLoader, '/trail-gradient.png')
   alphaMap.flipY = false
 
-  // Reset when re-enabled
+  const { geometry, history, tempVectors, ringIndex, opacity } = useMemo(() => {
+    const geo = createTrailGeometry(points.length)
+    // Pre-allocate history as a ring buffer of Vector3 arrays
+    const hist = Array.from({ length: SEGMENT_COUNT }, () =>
+      points.map(() => new Vector3())
+    )
+    // Reusable vectors for world position calculations
+    const temps = points.map(() => new Vector3())
+    return {
+      geometry: geo,
+      history: hist,
+      tempVectors: temps,
+      ringIndex: { current: 0 },
+      opacity: { current: 1 },
+    }
+  }, [points])
+
   useEffect(() => {
     if (enabled) {
-      history.current = []
+      ringIndex.current = 0
       opacity.current = 1
+      // Reset all history positions
+      for (const segment of history) {
+        for (const vec of segment) {
+          vec.set(0, 0, 0)
+        }
+      }
       setVisible(true)
     }
-  }, [enabled])
-
-  const geometry = useMemo(() => {
-    const geo = new BufferGeometry()
-    const numPts = points.length
-
-    // Position attribute (will be updated each frame)
-    geo.setAttribute('position', new BufferAttribute(new Float32Array(numPts * SEGMENTS * 3), 3))
-
-    // UVs for gradient texture (v = 0 at tip, v = 1 at tail)
-    const uvs = new Float32Array(numPts * SEGMENTS * 2)
-    for (let seg = 0; seg < SEGMENTS; seg++) {
-      for (let pt = 0; pt < numPts; pt++) {
-        const i = (seg * numPts + pt) * 2
-        uvs[i] = pt / (numPts - 1)
-        uvs[i + 1] = seg / SEGMENTS
-      }
-    }
-    geo.setAttribute('uv', new BufferAttribute(uvs, 2))
-
-    // Triangle indices connecting segments
-    const indices: number[] = []
-    for (let seg = 0; seg < SEGMENTS - 1; seg++) {
-      for (let pt = 0; pt < numPts - 1; pt++) {
-        const a = seg * numPts + pt
-        const b = a + 1
-        const c = (seg + 1) * numPts + pt
-        const d = c + 1
-        indices.push(a, c, b, b, c, d)
-      }
-    }
-    geo.setIndex(indices)
-
-    return geo
-  }, [points.length])
+  }, [enabled, history, ringIndex, opacity])
 
   useFrame((_, delta) => {
-    if (!target.current || !meshRef.current) return
+    const mesh = meshRef.current
+    const targetGroup = target.current
+    if (!mesh || !targetGroup) return
 
-    // Fade out while still following
     if (!enabled) {
       opacity.current = Math.max(0, opacity.current - delta / FADE_DURATION)
-      ;(meshRef.current.material as MeshBasicMaterial).opacity = opacity.current
+      mesh.material.opacity = opacity.current
       if (opacity.current <= 0) {
         setVisible(false)
         return
       }
     }
 
-    // Get current world positions of trail points
-    const current = points.map(p => target.current!.localToWorld(p.clone()))
-
-    // Initialize history with current position
-    if (history.current.length === 0) {
-      for (let i = 0; i < SEGMENTS; i++) history.current.push(current.map(p => p.clone()))
+    // Calculate current world positions using pre-allocated vectors
+    for (let i = 0; i < points.length; i++) {
+      tempVectors[i].copy(points[i])
+      targetGroup.localToWorld(tempVectors[i])
     }
 
-    // Shift history and add new position
-    history.current.shift()
-    history.current.push(current)
+    // Store in ring buffer (newest at ringIndex)
+    const currentSegment = history[ringIndex.current]
+    for (let i = 0; i < points.length; i++) {
+      currentSegment[i].copy(tempVectors[i])
+    }
+    ringIndex.current = (ringIndex.current + 1) % SEGMENT_COUNT
 
-    // Update geometry vertices
-    const positions = meshRef.current.geometry.attributes.position
-    for (let seg = 0; seg < SEGMENTS; seg++) {
-      for (let pt = 0; pt < points.length; pt++) {
-        const pos = history.current[seg][pt]
-        positions.setXYZ(seg * points.length + pt, pos.x, pos.y, pos.z)
+    // Update geometry: segment 0 = oldest, segment N-1 = newest
+    const positions = mesh.geometry.attributes.position
+    for (let segment = 0; segment < SEGMENT_COUNT; segment++) {
+      const historyIndex = (ringIndex.current + segment) % SEGMENT_COUNT
+      const historySegment = history[historyIndex]
+      for (let point = 0; point < points.length; point++) {
+        const pos = historySegment[point]
+        positions.setXYZ(segment * points.length + point, pos.x, pos.y, pos.z)
       }
     }
     positions.needsUpdate = true
-  }, -1)
+  }, -1) // Run before render
 
   if (!visible) return null
 
