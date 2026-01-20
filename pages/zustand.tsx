@@ -17,18 +17,18 @@ const useWorldStore = create<typeof defaultState>(() => defaultState)
 const getWorld = useWorldStore.getState
 const setWorld = useWorldStore.setState
 
-const Character = ({ character }: { character: CharacterEntity }) => {
+const Character = ({ entity }: { entity: CharacterEntity }) => {
   const ref = useRef<Mesh>(null)
 
   useFrame(() => {
     if (ref.current) {
-      ref.current.position.x = character.position.x
-      ref.current.position.y = character.position.y
+      ref.current.position.x = entity.position.x
+      ref.current.position.y = entity.position.y
     }
   })
 
   return (
-    <mesh ref={ref} position={[character.position.x, character.position.y, 0]} scale={0.3}>
+    <mesh ref={ref} position={[entity.position.x, entity.position.y, 0]} scale={0.3}>
       <sphereGeometry />
       <meshBasicMaterial color="blue" />
     </mesh>
@@ -57,8 +57,8 @@ const SpawnSystem = () => {
 const MovementSystem = () => {
   useFrame(({ elapsed }) => {
     for (const character of useWorldStore.getState().characters) {
-      character.position.x += Math.sin(elapsed + character.id * 5) * 0.01
-      character.position.y += Math.cos(elapsed + character.id * 5) * 0.01
+      character.position.x += Math.sin(elapsed + character.id * 100) * 0.01
+      character.position.y += Math.cos(elapsed + character.id * 100) * 0.01
     }
   })
 
@@ -67,7 +67,7 @@ const MovementSystem = () => {
 
 const CharacterEntities = () => {
   const characters = useWorldStore(s => s.characters)
-  return characters.map(character => <CharacterMemo key={character.id} character={character} />)
+  return characters.map(character => <CharacterMemo key={character.id} entity={character} />)
 }
 
 const ZustandPage = () => (
@@ -88,9 +88,8 @@ ZustandPage.description = (
     <a href="https://github.com/pmndrs/zustand" target="_blank">
       Zustand
     </a>{' '}
-    to manage entities. Re-rendering happens when entities are added to or removed from the store\s array. Simple but
-    the downside is that you need to explicitly tell systems what entities to iterate over. Use memo() to make sure the
-    individual entities are not re-rendered when the array of entities changes.
+    to manage entities. Not a real ECS. Re-rendering happens when entities are added to or removed from the store's array. Simple but
+    the downside is that you need to explicitly tell systems what entities to iterate over.
   </>
 )
 

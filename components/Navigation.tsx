@@ -22,6 +22,7 @@ const sections = [
   {
     title: 'ECS / Entities',
     pages: [
+      { name: 'Koota', href: '/koota' },
       { name: 'Miniplex', href: '/miniplex' },
       { name: 'Zustand', href: '/zustand' },
     ],
@@ -72,12 +73,12 @@ export const Navigation = ({ defaultOpen = false }: { defaultOpen?: boolean }) =
           </button>
           <nav className="mt-10">
             {sections.map(section => (
-              <div key={section.title} className="mb-6">
-                <h3 className="mb-2 text-sm font-semibold tracking-wider text-gray-400 uppercase">{section.title}</h3>
-                <ul className="m-0 list-none p-0">
+              <div key={section.title} className="mb-5">
+                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">{section.title}</h3>
+                <ul className="m-0 list-none">
                   {section.pages.map(page => (
-                    <li key={page.href} className="mb-1">
-                      <a href={page.href} className="block py-1.5 text-lg no-underline">
+                    <li key={page.href} className="mb-0">
+                      <a href={page.href} className="block text-lg no-underline">
                         {page.name}
                       </a>
                     </li>

@@ -6,14 +6,13 @@ import { useEffect, useRef } from 'react'
 import { Mesh } from 'three'
 
 type Entity = {
-  id: number
   position?: { x: number; y: number }
   isCharacter?: true
 }
 
 const world = new World<Entity>()
 
-const characterQuery = world.with('id', 'position', 'isCharacter')
+const characterQuery = world.with('position', 'isCharacter')
 type CharacterEntity = (typeof characterQuery)['entities'][number]
 
 const entitiesWithPosition = world.with('position')
@@ -61,8 +60,9 @@ const SpawnSystem = () => {
 const MovementSystem = () => {
   useFrame(({ elapsed }) => {
     for (const entity of entitiesWithPosition) {
-      entity.position.x += Math.sin(elapsed + entity.id * 5) * 0.01
-      entity.position.y += Math.cos(elapsed + entity.id * 5) * 0.01
+      /* using entity id as an offset number */
+      entity.position.x += Math.sin(elapsed + world.id(entity)) * 0.01
+      entity.position.y += Math.cos(elapsed + world.id(entity)) * 0.01
     }
   })
 

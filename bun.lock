@@ -7,6 +7,7 @@
         "@react-three/drei": "11.0.0-alpha.4",
         "@react-three/fiber": "10.0.0-alpha.1",
         "husky": "9.1.7",
+        "koota": "0.6.4",
         "miniplex": "2.0.0",
         "miniplex-react": "2.0.1",
         "next": "16.1.2",
@@ -334,6 +335,8 @@
     "jiti": ["jiti@2.6.1", "", { "bin": { "jiti": "lib/jiti-cli.mjs" } }, "sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ=="],
 
     "json-schema-traverse": ["json-schema-traverse@1.0.0", "", {}, "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug=="],
+
+    "koota": ["koota@0.6.4", "", { "peerDependencies": { "@types/react": ">=18.0.0", "react": ">=18.0.0" }, "optionalPeers": ["@types/react", "react"] }, "sha512-q8IKxQXGvnsu90su3ALl/Fox9yKQiLMg74fkWkVUSBNwJIxHOIkgh/eGFkkcwSfJK5Vza3NVYIAN1qs2SNVEIA=="],
 
     "lie": ["lie@3.3.0", "", { "dependencies": { "immediate": "~3.0.5" } }, "sha512-UaiMJzeWRlEujzAuw5LokY1L5ecNQYZKfmyZ9L7wDHb/p5etKaxXhohBcrw0EYby+G/NA52vRSN4N39dxHAIwQ=="],
 
