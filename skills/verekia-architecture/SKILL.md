@@ -108,12 +108,42 @@ systems/
   ThreeSystem.tsx
 lib/
   ecs.ts      # world, queries, entity types
-  hooks.ts    # custom hooks if any
+  hooks.ts    # useReactive
 ```
 
 - `entities/` - Smart wrappers that use `ModelContainer` and connect ECS entities to models
 - `models/` - Dumb rendering components, no game logic, no `useFrame`
 - `lib/ecs.ts` - World, queries, and entity type definitions all in one file
+
+## Systems and Queries
+
+**Important**: Systems must iterate over queries tailored to their specific needs, not over entity types.
+
+```tsx
+// ✅ GOOD - Query targets entities with the components the system needs
+const entitiesWithVelocity = world.with('position', 'velocity')
+
+const VelocitySystem = () => {
+  useFrame((_, delta) => {
+    for (const entity of entitiesWithVelocity) {
+      entity.position.x += entity.velocity.x * delta
+    }
+  })
+  return null
+}
+
+// ❌ BAD - Iterating over specific entity types
+const VelocitySystem = () => {
+  useFrame((_, delta) => {
+    for (const player of players) { /* ... */ }
+    for (const enemy of enemies) { /* ... */ }
+    for (const projectile of projectiles) { /* ... */ }
+  })
+  return null
+}
+```
+
+The point of an ECS is that systems operate on a subset of entities matching exactly what they need. A `VelocitySystem` targets entities with `velocity`, not "players + enemies + projectiles".
 
 ## Key Principles
 
@@ -121,6 +151,7 @@ lib/
 - **Entity/Model separation**: `*Entity` components are smart wrappers, `*Model` components are dumb renderers
 - **Systems sync Three.js**: Systems update both entity state AND `entity.three` positions/rotations
 - **Decouple completely**: The game should work if you delete all view components
+- **Query by components, not types**: Systems iterate over queries based on required components
 
 ## Related Skills
 

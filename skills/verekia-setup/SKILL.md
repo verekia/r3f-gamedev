@@ -183,6 +183,8 @@ See the `miniplex` and `verekia-miniplex` skill for usage details.
 
 Zustand is used for state that doesn't belong in the ECS, like UI state and user preferences.
 
+**Important**: The three stores (core-store, ui-store, local-store) must always be set up as boilerplate in every project, even if the initial feature doesn't require them. They are part of the standard project structure.
+
 Dependencies:
 
 ```json
@@ -193,7 +195,15 @@ Dependencies:
 }
 ```
 
-See the `verekia-stores` skill for the store patterns (core-store, ui-store, local-store).
+See the `verekia-stores` skill for the store patterns and implementation details.
+
+## Hooks
+
+useReactive, useReactiveSlow (useReactive at 10 fps), useReactiveFast (useReactive at 30fps) must also be implement in lib/hooks.ts.
+
+## Math util
+
+smooth-interpolation functions must be part of lib/math.ts
 
 ## Git Ignore
 
@@ -222,6 +232,9 @@ Use these skills together with `verekia-setup`:
 - `verekia-miniplex` - Miniplex patterns for rendering entities
 - `verekia-stores` - Zustand store patterns (core-store, ui-store, local-store)
 - `miniplex` - Core Miniplex API and preferred methods
+- `ui-useframe` - Sync UI outside Canvas with render loop
+- `smooth-interpolation` - Exponential smoothing for animations
+- `reactive-polling` - useReactive hook for polling state changes
 
 ---
 
