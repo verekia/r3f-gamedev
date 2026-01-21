@@ -70,7 +70,7 @@ const CharacterEntities = () => {
   return characters.map(character => <CharacterMemo key={character.id} entity={character} />)
 }
 
-const ZustandPage = () => (
+const ZustandEntitiesPage = () => (
   <>
     <Canvas>
       <CharacterEntities />
@@ -81,8 +81,8 @@ const ZustandPage = () => (
   </>
 )
 
-ZustandPage.title = 'Zustand'
-ZustandPage.description = (
+ZustandEntitiesPage.title = 'Zustand Entities'
+ZustandEntitiesPage.description = (
   <>
     Uses{' '}
     <a href="https://github.com/pmndrs/zustand" target="_blank">
@@ -93,4 +93,4 @@ ZustandPage.description = (
   </>
 )
 
-export default ZustandPage
+export default ZustandEntitiesPage

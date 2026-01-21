@@ -1,5 +1,5 @@
 ---
-name: model-container
+name: verekia-model-container
 description: Capture Three.js object references via a wrapper component for system access.
 ---
 
@@ -92,3 +92,12 @@ const MovementSystem = () => {
 - Entity logic stays with entity components
 - Systems don't need to know about React component structure
 - Works with any entity system (ECS, Zustand, plain objects)
+
+## Related Skills
+
+- `verekia-architecture` - Broader architecture principles (Systems vs Views, headless-first)
+- `verekia-miniplex` - Using this pattern with Miniplex ECS
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

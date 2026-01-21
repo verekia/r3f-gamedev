@@ -43,3 +43,7 @@ const useReactive = <T,>(selector: () => T, fps = 30): T => {
 // Usage
 const isAboveZero = useReactive(() => position.y > 0)
 ```
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

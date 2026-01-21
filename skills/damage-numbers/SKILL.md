@@ -26,3 +26,7 @@ Use Drei's `Html` component to render DOM elements in 3D space. Manage damage nu
   <div style={{ animation: 'damageNumber 1.3s ease-out forwards' }}>{damage.value}</div>
 </Html>
 ```
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

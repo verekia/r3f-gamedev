@@ -1,5 +1,5 @@
 ---
-name: architecture
+name: verekia-architecture
 description: Separate game logic in systems from React components which are only views.
 ---
 
@@ -96,7 +96,17 @@ const EnemyEntity = ({ entity }: { entity: Enemy }) => (
 
 ## Key Principles
 
-- **No `useFrame` in view components**: All `useFrame` calls belong in systems
+- **No `useFrame` in view components**: Most `useFrame` calls belong in systems
 - **Entity/Model separation**: `*Entity` components are smart wrappers, `*Model` components are dumb renderers
 - **Systems sync Three.js**: Systems update both entity state AND `entity.three` positions/rotations
 - **Decouple completely**: The game should work if you delete all view components
+
+## Related Skills
+
+- `verekia-model-container` - ModelContainer pattern and Entity/Model separation in detail
+- `verekia-miniplex` - How to use Miniplex with this architecture
+- `verekia-stores` - Zustand stores for non-ECS state
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

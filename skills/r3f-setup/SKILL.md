@@ -1,11 +1,11 @@
 ---
-name: project-setup
-description: Set up a React Three Fiber project with WebGPU support, the latest alpha versions of R3F v10 and Drei v11, TSL, React Compiler, Tailwind v4.
+name: r3f-setup
+description: Set up a React Three Fiber project with WebGPU support.
 ---
 
 # Project Setup
 
-Set up a React Three Fiber project with WebGPU support using Next.js, React 19, and Three.js TSL.
+Set up a React Three Fiber project with WebGPU support using React 19 and Three.js TSL.
 
 ## Dependencies
 
@@ -22,6 +22,9 @@ Core dependencies for R3F with WebGPU:
   },
   "devDependencies": {
     "@types/three": "0.182.0"
+  },
+  "overrides": {
+    "three": "0.182.0"
   }
 }
 ```
@@ -33,7 +36,7 @@ Import Canvas from the WebGPU entry point:
 ```tsx
 import { Canvas } from '@react-three/fiber/webgpu'
 
-const Page = () => (
+const App = () => (
   <Canvas>
     <mesh>
       <boxGeometry />
@@ -53,119 +56,20 @@ import { Fn, vec3, sin, time } from 'three/tsl'
 
 Use node materials like `meshBasicNodeMaterial` for TSL integration.
 
-## Next.js Pages Router
+## TypeScript Declarations
 
-Use the Pages Router with static export:
+Create `r3f.d.ts` in your project (at the root for example) for proper typings:
 
-```js
-// next.config.mjs
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  reactCompiler: true,
-  output: 'export',
-}
+```ts
+import type { ThreeToJSXElements } from '@react-three/fiber'
+import type * as THREE from 'three/webgpu'
 
-export default nextConfig
-```
-
-Pages go in `pages/` directory. Each file becomes a route. 'use client' directives should not be used since we are in the Pages router.
-
-## Tailwind 4
-
-Tailwind 4 uses CSS-based configuration with `@import`:
-
-```css
-/* global.css */
-@import 'tailwindcss';
-
-body {
-  background-color: #111;
-  color: #eee;
-}
-
-html,
-body,
-#__next,
-canvas {
-  height: 100%;
-  width: 100%;
+declare module '@react-three/fiber' {
+  interface ThreeElements extends ThreeToJSXElements<typeof THREE> {}
 }
 ```
 
-Dependencies:
-
-```json
-{
-  "devDependencies": {
-    "@tailwindcss/postcss": "4.1.18",
-    "postcss": "8.5.6",
-    "tailwindcss": "4.1.18"
-  }
-}
-```
-
-No `tailwind.config.js` needed - Tailwind 4 uses CSS-first configuration.
-
-## Prettier
-
-```js
-// prettier.config.js
-/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
-export default {
-  printWidth: 120,
-  semi: false,
-  singleQuote: true,
-  trailingComma: 'es5',
-  arrowParens: 'avoid',
-  plugins: ['prettier-plugin-tailwindcss'],
-}
-```
-
-Dependencies:
-
-```json
-{
-  "devDependencies": {
-    "prettier-plugin-tailwindcss": "0.7.2"
-  }
-}
-```
-
-## TypeScript
-
-No `src/` folder - files live at the root. Use `@/` for absolute imports:
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": false,
-    "noEmit": true,
-    "incremental": true,
-    "module": "esnext",
-    "esModuleInterop": true,
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-    "paths": { "@/*": ["./*"] }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
-}
-```
-
-Import example:
-
-```tsx
-import { Navigation } from '@/components/Navigation'
-```
-
-But there is no need to create a tsconfig.json file yourself. Run `bun run build` and Next.js should automatically create a tsconfig.json file. You might have to add the @/ paths into this newly created file though.
+This enables R3F element's typings. Make sure it's part of the files included in your `tsconfig.json`.
 
 ## Required Patches (Bun)
 
@@ -176,9 +80,6 @@ Three.js 0.182.0 and detect-gpu require patches for WebGPU/SSR compatibility. Ad
   "patchedDependencies": {
     "three@0.182.0": "patches/three@0.182.0.patch",
     "detect-gpu@5.0.70": "patches/detect-gpu@5.0.70.patch"
-  },
-  "overrides": {
-    "three": "0.182.0"
   }
 }
 ```
@@ -231,3 +132,7 @@ Run `bun install` to apply patches.
 - Use `three-stdlib` for additional utilities
 - React Compiler is recommended with React 19
 - The `overrides` field ensures consistent Three.js versions across dependencies
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

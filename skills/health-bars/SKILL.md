@@ -33,3 +33,7 @@ useFrame(() => {
   </div>
 </Html>
 ```
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

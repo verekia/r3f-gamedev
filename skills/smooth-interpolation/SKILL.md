@@ -39,3 +39,7 @@ useFrame((_, delta) => {
 
 - [Exponential Smoothing](https://lisyarus.github.io/blog/posts/exponential-smoothing.html)
 - [Lerp Smoothing is Broken](https://www.youtube.com/watch?v=LSNQuFEDOyQ)
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

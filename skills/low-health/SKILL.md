@@ -26,3 +26,7 @@ Use a full-screen fixed div with `box-shadow: inset` to create a red vignette ef
   style={{ boxShadow: 'inset 0 0 160px 40px red' }}
 />
 ```
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

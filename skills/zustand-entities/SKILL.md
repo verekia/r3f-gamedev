@@ -1,11 +1,11 @@
 ---
-name: zustand
-description: Use Zustand as a simple state store for entity management.
+name: zustand-entities
+description: Use Zustand as a simple state store for entity management (not a true ECS).
 ---
 
-# Zustand
+# Zustand Entities
 
-Use Zustand as a simple state store for entity management.
+Use Zustand as a simple state store for entity management. This is different from `verekia-stores` which uses Zustand for non-ECS state (UI, preferences).
 
 ## Technique
 
@@ -44,3 +44,7 @@ return characters.map(c => <Character key={c.id} entity={c} />)
 - Simple to understand and implement
 - No automatic querying - must manually specify which entities to iterate
 - Good for smaller games or prototypes
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

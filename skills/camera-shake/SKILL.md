@@ -30,3 +30,11 @@ const shake = (intensity = 0.05) => {
 rotationOffset.x += addSmoothExp(rotationOffset.x, 0, 10, delta)
 camera.rotation.x = rotationOffset.x
 ```
+
+## Related Skills
+
+- `smooth-interpolation` - Exponential smoothing formula details
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

@@ -22,7 +22,7 @@ Define traits (components) with `trait()`, create a world, spawn entities with t
 - `world.query()` finds entities matching traits
 - `useQuery()` hook for reactive entity lists in React
 - `useTraitEffect()` for responding to trait changes without re-rendering
-- Systems are components that use `useFrame` to update entities
+- Systems are React components that use `useFrame` to update entities (they return `null`, not views)
 
 ## Usage
 
@@ -43,3 +43,7 @@ world.query(Position).updateEach(([position]) => {
 // React component
 const characters = useQuery(Position, IsCharacter)
 ```
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).

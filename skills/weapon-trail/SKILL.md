@@ -37,3 +37,7 @@ const trailPoints = [new Vector3(0, 0, 0), new Vector3(0, 1.5, 0)]
 - Points per segment: trail point positions at that time
 - UVs: u = position along trail (0-1), v = age (0 = newest, 1 = oldest)
 - Alpha map texture for gradient fade effect
+
+---
+
+This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).
