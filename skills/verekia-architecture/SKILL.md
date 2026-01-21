@@ -94,6 +94,27 @@ const EnemyEntity = ({ entity }: { entity: Enemy }) => (
 )
 ```
 
+## Folder Structure
+
+```
+entities/
+  PlayerEntity.tsx
+  EnemyEntity.tsx
+models/
+  PlayerModel.tsx
+  EnemyModel.tsx
+systems/
+  VelocitySystem.tsx
+  ThreeSystem.tsx
+lib/
+  ecs.ts      # world, queries, entity types
+  hooks.ts    # custom hooks if any
+```
+
+- `entities/` - Smart wrappers that use `ModelContainer` and connect ECS entities to models
+- `models/` - Dumb rendering components, no game logic, no `useFrame`
+- `lib/ecs.ts` - World, queries, and entity type definitions all in one file
+
 ## Key Principles
 
 - **No `useFrame` in view components**: Most `useFrame` calls belong in systems

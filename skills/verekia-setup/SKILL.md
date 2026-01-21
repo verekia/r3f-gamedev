@@ -31,6 +31,9 @@ Dependencies:
 {
   "dependencies": {
     "next": "16.1.2"
+  },
+  "devDependencies": {
+    "babel-plugin-react-compiler": "1.0.0"
   }
 }
 ```
@@ -131,6 +134,17 @@ import { Navigation } from '@/components/Navigation'
 
 No need to create tsconfig.json manually. Run `bun run build` and Next.js will create it. Add the `@/` paths to the generated file.
 
+Dependencies:
+
+```json
+{
+  "devDependencies": {
+    "@types/node": "25.0.9",
+    "typescript": "5.9.3"
+  }
+}
+```
+
 ## Bun
 
 Use Bun as package manager and runtime. Scripts in `package.json`:
@@ -197,6 +211,17 @@ next-env.d.ts
 playwright-report/
 .last-run.json
 ```
+
+## Related Skills
+
+Use these skills together with `verekia-setup`:
+
+- `r3f-setup` - Core React Three Fiber dependencies and WebGPU setup
+- `verekia-architecture` - Systems vs Views separation, folder structure
+- `verekia-model-container` - ModelContainer pattern for Entity/Model separation
+- `verekia-miniplex` - Miniplex patterns for rendering entities
+- `verekia-stores` - Zustand store patterns (core-store, ui-store, local-store)
+- `miniplex` - Core Miniplex API and preferred methods
 
 ---
 
