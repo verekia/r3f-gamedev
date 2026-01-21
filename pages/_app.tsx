@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import { NextPage } from 'next'
-import { Navigation } from '../components/Navigation'
+import { Navigation } from '@/components/Navigation'
 import '../global.css'
 
 export type PageWithMeta = NextPage & {

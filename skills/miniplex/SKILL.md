@@ -7,6 +7,11 @@ description: Use Miniplex for minimalistic Entity Component System with TypeScri
 
 Use Miniplex for minimalistic Entity Component System with TypeScript support.
 
+When setting up or undertaking important changes with Miniplex, fetch the documentations:
+
+Core: https://raw.githubusercontent.com/hmans/miniplex/refs/heads/main/packages/core/README.md
+React bindings: https://raw.githubusercontent.com/hmans/miniplex/refs/heads/main/packages/react/README.md
+
 ## Technique
 
 Define an entity type with optional properties, create a world, and query entities based on their properties. Use `miniplex-react` for React bindings with the `Entities` component.

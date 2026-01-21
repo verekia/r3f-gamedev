@@ -26,13 +26,16 @@ const useReactive = <T,>(selector: () => T, fps = 30): T => {
   const [reactiveValue, setReactiveValue] = useState<T>(selector())
   const previousValueRef = useRef(reactiveValue)
 
-  useFrame(() => {
-    const newValue = selector()
-    if (previousValueRef.current !== newValue) {
-      previousValueRef.current = newValue
-      setReactiveValue(newValue)
-    }
-  }, { fps })
+  useFrame(
+    () => {
+      const newValue = selector()
+      if (previousValueRef.current !== newValue) {
+        previousValueRef.current = newValue
+        setReactiveValue(newValue)
+      }
+    },
+    { fps }
+  )
 
   return reactiveValue
 }

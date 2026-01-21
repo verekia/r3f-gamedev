@@ -7,6 +7,10 @@ description: Use Koota for data-oriented Entity Component System architecture wi
 
 Use Koota for data-oriented Entity Component System architecture with React bindings.
 
+When setting up or undertaking important changes with Koota, fetch the documentations:
+
+https://raw.githubusercontent.com/pmndrs/koota/refs/heads/main/README.md
+
 ## Technique
 
 Define traits (components) with `trait()`, create a world, spawn entities with traits, and query entities in systems. Use `useQuery` to reactively render entities and `useTraitEffect` to respond to trait changes.

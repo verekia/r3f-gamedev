@@ -23,8 +23,6 @@ Use Drei's `Html` component to render DOM elements in 3D space. Manage damage nu
 
 ```tsx
 <Html center position={[damage.x, damage.y, 0]}>
-  <div style={{ animation: 'damageNumber 1.3s ease-out forwards' }}>
-    {damage.value}
-  </div>
+  <div style={{ animation: 'damageNumber 1.3s ease-out forwards' }}>{damage.value}</div>
 </Html>
 ```

@@ -66,9 +66,7 @@ const Trail = ({
   const { geometry, history, tempVectors, ringIndex, opacity } = useMemo(() => {
     const geo = createTrailGeometry(points.length)
     // Pre-allocate history as a ring buffer of Vector3 arrays
-    const hist = Array.from({ length: SEGMENT_COUNT }, () =>
-      points.map(() => new Vector3())
-    )
+    const hist = Array.from({ length: SEGMENT_COUNT }, () => points.map(() => new Vector3()))
     // Reusable vectors for world position calculations
     const temps = points.map(() => new Vector3())
     return {

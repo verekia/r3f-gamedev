@@ -20,6 +20,7 @@ const sections = [
       { name: 'Smooth Interpolation', href: '/smooth-interpolation' },
       { name: 'Reactive Polling', href: '/reactive-polling' },
       { name: 'UI useFrame', href: '/ui-useframe' },
+      { name: 'Model Container', href: '/model-container' }
     ],
   },
   {

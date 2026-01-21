@@ -1,6 +1,6 @@
 ---
 name: project-setup
-description: Set up a React Three Fiber project with WebGPU support.
+description: Set up a React Three Fiber project with WebGPU support, the latest alpha versions of R3F v10 and Drei v11, TSL, React Compiler, Tailwind v4.
 ---
 
 # Project Setup
@@ -69,7 +69,7 @@ const nextConfig = {
 export default nextConfig
 ```
 
-Pages go in `pages/` directory. Each file becomes a route.
+Pages go in `pages/` directory. Each file becomes a route. 'use client' directives should not be used since we are in the Pages router.
 
 ## Tailwind 4
 
@@ -131,6 +131,41 @@ Dependencies:
   }
 }
 ```
+
+## TypeScript
+
+No `src/` folder - files live at the root. Use `@/` for absolute imports:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "paths": { "@/*": ["./*"] }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
+```
+
+Import example:
+
+```tsx
+import { Navigation } from '@/components/Navigation'
+```
+
+But there is no need to create a tsconfig.json file yourself. Run `bun run build` and Next.js should automatically create a tsconfig.json file. You might have to add the @/ paths into this newly created file though.
 
 ## Required Patches (Bun)
 
