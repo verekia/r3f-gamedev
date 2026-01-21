@@ -1,5 +1,5 @@
 ---
-name: Smooth Interpolation
+name: smooth-interpolation
 description: Animate values smoothly using exponential decay instead of linear interpolation.
 ---
 

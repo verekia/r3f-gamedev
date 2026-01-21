@@ -1,5 +1,5 @@
 ---
-name: Miniplex ECS
+name: miniplex
 description: Use Miniplex for minimalistic Entity Component System with TypeScript support.
 ---
 

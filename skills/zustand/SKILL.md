@@ -1,5 +1,5 @@
 ---
-name: Zustand
+name: zustand
 description: Use Zustand as a simple state store for entity management.
 ---
 

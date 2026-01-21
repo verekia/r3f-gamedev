@@ -1,5 +1,5 @@
 ---
-name: Damage Numbers
+name: damage-numbers
 description: Display floating damage numbers that animate upward and fade out, with support for critical hits.
 ---
 

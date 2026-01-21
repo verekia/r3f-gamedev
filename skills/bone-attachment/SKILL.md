@@ -1,5 +1,5 @@
 ---
-name: Bone Attachment
+name: bone-attachment
 description: Attach meshes to bones of a skinned mesh, such as attaching a sword to a character's hand.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: Koota ECS
+name: koota
 description: Use Koota for data-oriented Entity Component System architecture with React bindings.
 ---
 

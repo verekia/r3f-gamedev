@@ -1,5 +1,5 @@
 ---
-name: Health Bars
+name: health-bars
 description: Display health bars above characters using CSS styling.
 ---
 
