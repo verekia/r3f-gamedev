@@ -28,7 +28,7 @@ const sections = [
     pages: [
       { name: 'Koota', href: '/koota' },
       { name: 'Miniplex', href: '/miniplex' },
-      { name: 'Zustand', href: '/zustand' },
+      { name: 'Zustand Entities', href: '/zustand-entities' },
     ],
   },
 ]
