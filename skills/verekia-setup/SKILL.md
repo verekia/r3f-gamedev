@@ -181,6 +181,23 @@ Dependencies:
 
 See the `verekia-stores` skill for the store patterns (core-store, ui-store, local-store).
 
+## Git Ignore
+
+Add this .gitignore:
+```
+node_modules/
+.next/
+out/
+.DS_Store
+.env*.local
+*.tsbuildinfo
+analyze/
+*.blend1
+next-env.d.ts
+playwright-report/
+.last-run.json
+```
+
 ---
 
 This skill is part of [verekia](https://x.com/verekia)'s [**r3f-gamedev**](https://github.com/verekia/r3f-gamedev).
