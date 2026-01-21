@@ -1,3 +1,8 @@
+---
+name: UI useFrame
+description: Sync UI elements outside the Canvas with the render loop using R3F v10's external useFrame.
+---
+
 # UI useFrame
 
 Sync UI elements outside the Canvas with the render loop using R3F v10's external useFrame.

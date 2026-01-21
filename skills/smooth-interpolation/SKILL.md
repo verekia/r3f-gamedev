@@ -1,3 +1,8 @@
+---
+name: Smooth Interpolation
+description: Animate values smoothly using exponential decay instead of linear interpolation.
+---
+
 # Smooth Interpolation
 
 Animate values smoothly using exponential decay instead of linear interpolation.

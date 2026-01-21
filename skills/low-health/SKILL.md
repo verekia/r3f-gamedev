@@ -1,3 +1,8 @@
+---
+name: Low Health
+description: Display a pulsing red vignette overlay when the player's health is low.
+---
+
 # Low Health
 
 Display a pulsing red vignette overlay when the player's health is low.

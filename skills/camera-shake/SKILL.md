@@ -1,3 +1,8 @@
+---
+name: Camera Shake
+description: Shake the camera when the player takes damage or on impacts for visual feedback.
+---
+
 # Camera Shake
 
 Shake the camera when the player takes damage or on impacts for visual feedback.

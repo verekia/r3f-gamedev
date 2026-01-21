@@ -1,3 +1,8 @@
+---
+name: Zustand
+description: Use Zustand as a simple state store for entity management.
+---
+
 # Zustand
 
 Use Zustand as a simple state store for entity management.

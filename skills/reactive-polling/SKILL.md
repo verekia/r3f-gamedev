@@ -1,3 +1,8 @@
+---
+name: Reactive Polling
+description: Poll for changes to any value and trigger React re-renders when it changes.
+---
+
 # Reactive Polling
 
 Poll for changes to any value and trigger React re-renders when it changes.

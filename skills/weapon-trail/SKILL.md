@@ -1,3 +1,8 @@
+---
+name: Weapon Trail
+description: Create a ribbon trail effect that follows a weapon's movement.
+---
+
 # Weapon Trail
 
 Create a ribbon trail effect that follows a weapon's movement.

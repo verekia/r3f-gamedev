@@ -1,3 +1,8 @@
+---
+name: Pushback
+description: Make enemies flash white and rock back and forth when receiving damage.
+---
+
 # Pushback
 
 Make enemies flash white and rock back and forth when receiving damage.
