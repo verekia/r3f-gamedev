@@ -147,7 +147,7 @@ const CharacterEntity = (entity: CharacterEntity) => (
   </ModelContainer>
 )
 
-// entities/collections.tsx (contains <Entities> for all renderable entities)
+// entities/entities.tsx (contains <Entities> for all renderable entities)
 
 const isCharacterQuery = world.with('isCharacter')
 

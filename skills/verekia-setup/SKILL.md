@@ -53,6 +53,52 @@ Installation instructions and boilerplate for setting up a new R3F game project.
 
 Use Bun as package manager and runtime.
 
+## patches/three@0.182.0.patch
+
+Fixes GPUShaderStage SSR error:
+
+```patch
+diff --git a/build/three.webgpu.js b/build/three.webgpu.js
+index 31ff163d67f4cc5dec060a11bc7151c64f949fd9..823c1c35bca5411a27cbf52c5c3a188001fe0445 100644
+--- a/build/three.webgpu.js
++++ b/build/three.webgpu.js
+@@ -70604,7 +70604,7 @@ const GPUPrimitiveTopology = {
+ 	TriangleStrip: 'triangle-strip',
+ };
+
+-const GPUShaderStage = ( typeof self !== 'undefined' ) ? self.GPUShaderStage : { VERTEX: 1, FRAGMENT: 2, COMPUTE: 4 };
++const GPUShaderStage = ( typeof self !== 'undefined' && self.GPUShaderStage ) ? self.GPUShaderStage : { VERTEX: 1, FRAGMENT: 2, COMPUTE: 4 };
+
+ const GPUCompareFunction = {
+ 	Never: 'never',
+```
+
+## patches/detect-gpu@5.0.70.patch
+
+Adds missing exports field:
+
+```patch
+diff --git a/package.json b/package.json
+index 22ffa92b457c0d83c052eab3f1961110d134d1b3..4f5f9ef7a8a80d6f85e3e5b241a87091d95bbe39 100644
+--- a/package.json
++++ b/package.json
+@@ -7,6 +7,12 @@
+   "main": "dist/detect-gpu.umd.js",
+   "module": "dist/detect-gpu.esm.js",
+   "types": "dist/src/index.d.ts",
++  "exports": {
++    ".": {
++      "import": "./dist/detect-gpu.esm.js",
++      "require": "./dist/detect-gpu.umd.js"
++    }
++  },
+   "homepage": "https://github.com/pmndrs/detect-gpu#readme",
+   "bugs": {
+     "url": "https://github.com/pmndrs/detect-gpu/issues"
+```
+
+Run `bun install` to apply patches.
+
 ## next.config.mjs
 
 Use the Pages Router with static export:
@@ -156,6 +202,7 @@ Create these folders and files:
 
 ```
 entities/
+  entities.tsx (empty)
 models/
 systems/
 stores/
