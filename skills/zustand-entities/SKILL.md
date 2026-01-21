@@ -5,7 +5,7 @@ description: Use Zustand as a simple state store for entity management (not a tr
 
 # Zustand Entities
 
-Use Zustand as a simple state store for entity management. This is different from `verekia-stores` which uses Zustand for non-ECS state (UI, preferences).
+Use Zustand as a simple state store for entity management.
 
 ## Technique
 
