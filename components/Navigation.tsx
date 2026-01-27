@@ -21,6 +21,7 @@ const sections = [
       { name: 'Reactive Polling', href: '/reactive-polling' },
       { name: 'UI useFrame', href: '/ui-useframe' },
       { name: 'Model Container', href: '/model-container' },
+      { name: 'R3F-VFX', href: '/r3f-vfx' },
     ],
   },
   {
