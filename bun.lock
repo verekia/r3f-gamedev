@@ -11,7 +11,7 @@
         "miniplex": "2.0.0",
         "miniplex-react": "2.0.1",
         "next": "16.1.2",
-        "r3f-vfx": "0.0.8",
+        "r3f-vfx": "0.1.1",
         "react": "19.2.3",
         "react-dom": "19.2.3",
         "three": "0.182.0",
@@ -267,7 +267,7 @@
 
     "content-disposition": ["content-disposition@0.5.2", "", {}, "sha512-kRGRZw3bLlFISDBgwTSA1TMBFN6J6GWDeubmDE3AF+3+yXL8hTWv8r5rkLbqYXY4RjPk/EzHnClI3zQf1cFmHA=="],
 
-    "core-vfx": ["core-vfx@0.0.3", "", { "dependencies": { "zustand": "5.0.10" }, "peerDependencies": { "three": ">=0.182.0" } }, "sha512-OVViQE3Ma4P2+ZkEVS0Qhc7Wxqoo+PX5HdYWEeHqHkjxZmBSbk+Sq+WJHmPtEgRB4OtBfakWWL5WW36unbxczA=="],
+    "core-vfx": ["core-vfx@0.0.4", "", { "dependencies": { "zustand": "5.0.10" }, "peerDependencies": { "three": ">=0.182.0" } }, "sha512-wFPEbtR2BsMhS5wjZNuLEOKTa1B6E0VTQRMyq3VoLczdxd/HebgCZnM5rq2TVKYTXqNN9QjXPso+jb8bYFRiEQ=="],
 
     "cross-env": ["cross-env@7.0.3", "", { "dependencies": { "cross-spawn": "^7.0.1" }, "bin": { "cross-env": "src/bin/cross-env.js", "cross-env-shell": "src/bin/cross-env-shell.js" } }, "sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw=="],
 
@@ -423,7 +423,7 @@
 
     "punycode": ["punycode@2.3.1", "", {}, "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg=="],
 
-    "r3f-vfx": ["r3f-vfx@0.0.8", "", { "dependencies": { "core-vfx": "0.0.3", "zustand": "5.0.10" }, "peerDependencies": { "@react-three/fiber": ">=9.0.0 || >=10.0.0", "react": ">=19.0.0", "react-dom": ">=19.0.0", "three": ">=0.182.0" } }, "sha512-/K6GhjCHmimAq3WhScWUfK/Z6LG0MKn/CSDd7j9NWbsgbCQ8VjzHBC88JN/DvnSM8LltYJVmk8gJWOVlLxFVIw=="],
+    "r3f-vfx": ["r3f-vfx@0.1.1", "", { "dependencies": { "core-vfx": "0.0.4", "zustand": "5.0.10" }, "peerDependencies": { "@react-three/fiber": ">=9.0.0 || >=10.0.0", "react": ">=19.0.0", "react-dom": ">=19.0.0", "three": ">=0.182.0" } }, "sha512-IJGwIYI+6vAm4x25eYhmsoqFqlVEgzfBV/sGuxCPdUmx4x4Y8pyFroR5qpP48vPbIKEhUrwIn0zydHFcctQxUQ=="],
 
     "range-parser": ["range-parser@1.2.0", "", {}, "sha512-kA5WQoNVo4t9lNx2kQNFCxKeBl5IbbSNBl1M/tLkw9WCn+hxNBAW5Qh8gdhs63CJnhjJ2zQWFoqPJP2sK1AV5A=="],
 
