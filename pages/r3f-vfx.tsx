@@ -71,10 +71,10 @@ const R3FVfxPage = () => (
 R3FVfxPage.title = 'R3F-VFX'
 R3FVfxPage.description = (
   <>
-    <a href="https://github.com/mustache-dev/r3f-vfx" target="_blank">
-      r3f-vfx
+    <a href="https://github.com/mustache-dev/Three-VFX" target="_blank">
+      Three VFX
     </a>{' '}
-    is a work-in-progress GPU-accelerated particle system for Three.js WebGPU with React Three Fiber.
+    is a GPU-accelerated particle system for Three.js WebGPU with React Three Fiber bindings provided as <b>r3f-vfx</b>.
   </>
 )
 
