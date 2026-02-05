@@ -24,7 +24,6 @@ const R3FVfxPage = () => (
     <VFXParticles
       debug
       position={[0, 0, 0]}
-      fallback={<Fallback />}
       emitCount={12}
       size={[0.1, 0.3]}
       fadeSize={[0.5, 0]}
