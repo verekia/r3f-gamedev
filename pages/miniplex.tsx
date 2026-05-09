@@ -1,7 +1,7 @@
 import { OrbitControls } from '@react-three/drei/core'
 import { Canvas, useFrame } from '@react-three/fiber/webgpu'
 import { World } from 'miniplex'
-import createReactAPI from 'miniplex-react'
+import { createReactAPI } from 'miniplex-react'
 import { useEffect, useRef } from 'react'
 import { Mesh } from 'three'
 

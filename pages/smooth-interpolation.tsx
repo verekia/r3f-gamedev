@@ -1,18 +1,13 @@
 import { Canvas, useFrame } from '@react-three/fiber/webgpu'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Mesh } from 'three'
 
 let position = { x: 0, y: 0 }
 
 // https://lisyarus.github.io/blog/posts/exponential-smoothing.html
+// Equivalent formulation: target + (current - target) * Math.exp(-decay * dt) — see https://www.youtube.com/watch?v=LSNQuFEDOyQ
 const addSmoothExp = (current: number, target: number, speed: number, dt: number) =>
   (target - current) * (1 - Math.exp(-speed * dt))
-
-// Same thing
-// https://www.youtube.com/watch?v=LSNQuFEDOyQ
-// Use decay from 1 to 25
-const expDecay = (current: number, target: number, decay: number, dt: number) =>
-  target + (current - target) * Math.exp(-decay * dt)
 
 const Box = () => {
   const ref = useRef<Mesh>(null)

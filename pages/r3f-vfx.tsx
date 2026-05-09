@@ -10,15 +10,6 @@ const checkerboard = Fn(() => {
   return mix(vec3(0.2), vec3(0.4), checker)
 })
 
-const Fallback = () => {
-  return (
-    <mesh>
-      <boxGeometry />
-      <meshBasicMaterial color="red" />
-    </mesh>
-  )
-}
-
 const R3FVfxPage = () => (
   <Canvas className="bg-neutral-700">
     <VFXParticles

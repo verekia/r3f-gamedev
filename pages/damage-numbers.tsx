@@ -1,4 +1,4 @@
-import { Html, OrbitControls } from '@react-three/drei/core'
+import { Html } from '@react-three/drei/core'
 import { Canvas, useFrame } from '@react-three/fiber/webgpu'
 import { useRef, useState } from 'react'
 

@@ -13,7 +13,7 @@ const Ui = () => {
         ref.current.innerText = `${position.x.toFixed(2)}, ${position.y.toFixed(2)}`
       }
     },
-    { fps: 10 }
+    { fps: 10 },
   )
 
   return <div ref={ref} className="fixed top-4 right-4 tabular-nums" />
