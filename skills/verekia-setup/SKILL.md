@@ -1,6 +1,6 @@
 ---
 name: verekia-setup
-description: Verekia's preferred project setup with Next.js Pages Router, Tailwind 4, Prettier, and TypeScript.
+description: Verekia's preferred project setup with Next.js Pages Router, Tailwind 4, oxfmt, oxlint, and TypeScript.
 ---
 
 # Verekia's Project Setup
@@ -34,9 +34,12 @@ Installation instructions and boilerplate for setting up a new R3F game project.
     "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
     "@types/three": "0.182.0",
+    "@verekia/warden": "0.0.3",
     "babel-plugin-react-compiler": "1.0.0",
+    "oxfmt": "0.48.0",
+    "oxlint": "1.63.0",
+    "portless": "0.13.0",
     "postcss": "8.5.6",
-    "prettier-plugin-tailwindcss": "0.7.2",
     "serve": "14.2.5",
     "tailwindcss": "4.1.18",
     "typescript": "5.9.3"
@@ -137,17 +140,21 @@ canvas {
 }
 ```
 
-## prettier.config.js
+## .oxfmtrc.json
 
-```js
-/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
-export default {
-  printWidth: 120,
-  semi: false,
-  singleQuote: true,
-  trailingComma: 'es5',
-  arrowParens: 'avoid',
-  plugins: ['prettier-plugin-tailwindcss'],
+```json
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "sortTailwindcss": true,
+  "ignorePatterns": ["node_modules", "dist", "out", ".next"]
 }
 ```
 
@@ -372,7 +379,7 @@ if (typeof window !== 'undefined') window.getLocal = getLocal
 import { useFrame } from '@react-three/fiber/webgpu'
 import { useRef, useState } from 'react'
 
-export const useReactive = <T,>(selector: () => T, fps = 30): T => {
+export const useReactive = <T>(selector: () => T, fps = 30): T => {
   const [reactiveValue, setReactiveValue] = useState<T>(selector())
   const previousValueRef = useRef(reactiveValue)
 
@@ -384,14 +391,14 @@ export const useReactive = <T,>(selector: () => T, fps = 30): T => {
         setReactiveValue(newValue)
       }
     },
-    { fps }
+    { fps },
   )
 
   return reactiveValue
 }
 
-export const useReactiveSlow = <T,>(selector: () => T): T => useReactive(selector, 10)
-export const useReactiveFast = <T,>(selector: () => T): T => useReactive(selector, 30)
+export const useReactiveSlow = <T>(selector: () => T): T => useReactive(selector, 10)
+export const useReactiveFast = <T>(selector: () => T): T => useReactive(selector, 30)
 ```
 
 ## Boilerplate: lib/math.ts

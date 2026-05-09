@@ -2,13 +2,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "portless r3f-gamedev next dev",
     "build": "next build",
     "start": "serve out",
     "postinstall": "bun typegen",
     "typegen": "next typegen",
     "prepare": "husky",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mjs,json,css,md}\""
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "typecheck": "tsc --noEmit",
+    "warden": "warden",
+    "all": "bun run format:check && bun run lint && bun run typecheck && bun run warden"
   },
   "dependencies": {
     "@react-three/drei": "11.0.0-alpha.5",
@@ -31,18 +37,21 @@
     "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
     "@types/three": "0.182.0",
+    "@verekia/warden": "0.0.3",
     "babel-plugin-react-compiler": "1.0.0",
+    "oxfmt": "0.48.0",
+    "oxlint": "1.63.0",
+    "portless": "0.13.0",
     "postcss": "8.5.6",
-    "prettier-plugin-tailwindcss": "0.7.2",
     "serve": "14.2.5",
     "tailwindcss": "4.1.18",
     "typescript": "5.9.3"
   },
+  "overrides": {
+    "three": "0.182.0"
+  },
   "patchedDependencies": {
     "three@0.182.0": "patches/three@0.182.0.patch",
     "detect-gpu@5.0.70": "patches/detect-gpu@5.0.70.patch"
-  },
-  "overrides": {
-    "three": "0.182.0"
   }
 }

@@ -151,9 +151,7 @@ const CharacterEntity = (entity: CharacterEntity) => (
 
 const isCharacterQuery = world.with('isCharacter')
 
-export const CharacterEntities = () => (
-  <Entities in={isCharacterQuery}>{CharacterEntity}</Entities>
-)
+export const CharacterEntities = () => <Entities in={isCharacterQuery}>{CharacterEntity}</Entities>
 ```
 
 ## Systems and Queries
@@ -220,9 +218,15 @@ const VelocitySystem = () => {
 // ❌ BAD - Iterating over specific entity types
 const VelocitySystem = () => {
   useFrame((_, delta) => {
-    for (const player of players) { /* ... */ }
-    for (const enemy of enemies) { /* ... */ }
-    for (const projectile of projectiles) { /* ... */ }
+    for (const player of players) {
+      /* ... */
+    }
+    for (const enemy of enemies) {
+      /* ... */
+    }
+    for (const projectile of projectiles) {
+      /* ... */
+    }
   })
   return null
 }

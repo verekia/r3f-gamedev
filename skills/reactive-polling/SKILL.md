@@ -34,7 +34,7 @@ const useReactive = <T,>(selector: () => T, fps = 30): T => {
         setReactiveValue(newValue)
       }
     },
-    { fps }
+    { fps },
   )
 
   return reactiveValue

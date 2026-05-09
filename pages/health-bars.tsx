@@ -11,7 +11,7 @@ const Character = ({ x }: { x: number }) => {
         healthRef.current.style.transform = `scaleX(${Math.random()})`
       }
     },
-    { fps: 1 }
+    { fps: 1 },
   )
 
   return (
