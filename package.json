@@ -23,29 +23,29 @@
     "koota": "0.6.4",
     "miniplex": "2.0.0",
     "miniplex-react": "2.0.1",
-    "next": "16.1.2",
+    "next": "16.2.6",
     "r3f-vfx": "0.3.0",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
     "three": "0.182.0",
     "three-stdlib": "2.36.1",
     "zustand": "5.0.10"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.1.18",
-    "@types/node": "25.0.9",
-    "@types/react": "19.2.8",
+    "@types/node": "25.7.0",
+    "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/three": "0.182.0",
-    "@verekia/warden": "0.0.3",
+    "@verekia/warden": "0.0.4",
     "babel-plugin-react-compiler": "1.0.0",
     "oxfmt": "0.48.0",
     "oxlint": "1.63.0",
     "portless": "0.13.0",
-    "postcss": "8.5.6",
+    "postcss": "8.5.14",
     "serve": "14.2.5",
-    "tailwindcss": "4.1.18",
-    "typescript": "5.9.3"
+    "tailwindcss": "4.3.0",
+    "typescript": "6.0.3"
   },
   "overrides": {
     "three": "0.182.0"
