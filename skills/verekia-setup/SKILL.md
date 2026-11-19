@@ -33,17 +33,17 @@ Installation instructions and boilerplate for setting up a new R3F game project.
     "@react-three/fiber": "10.0.0-alpha.1",
     "miniplex": "2.0.0",
     "miniplex-react": "2.0.1",
-    "next": "16.1.2",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "three": "0.182.0",
     "zustand": "5.0.10"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.1.18",
     "@types/node": "25.0.9",
-    "@types/react": "19.2.8",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "@types/three": "0.182.0",
     "@verekia/warden": "0.0.6",
     "babel-plugin-react-compiler": "1.0.0",
@@ -52,7 +52,7 @@ Installation instructions and boilerplate for setting up a new R3F game project.
     "postcss": "8.5.6",
     "serve": "14.2.5",
     "tailwindcss": "4.1.18",
-    "typescript": "5.9.3"
+    "typescript": "7.0.2"
   },
   "overrides": {
     "three": "0.182.0"
