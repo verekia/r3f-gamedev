@@ -8,11 +8,11 @@
     "postinstall": "bun typegen",
     "typegen": "next typegen",
     "prepare": "husky",
-    "format": "oxfmt .",
-    "format:check": "oxfmt --check .",
+    "format": "bun fmt",
+    "format:check": "bun fmt --check",
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "bun check",
     "warden": "warden",
     "all": "bun run format:check && bun run lint && bun run typecheck && bun run warden"
   },
@@ -37,9 +37,8 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/three": "0.182.0",
-    "@verekia/warden": "0.0.4",
+    "@verekia/warden": "0.0.6",
     "babel-plugin-react-compiler": "1.0.0",
-    "oxfmt": "0.48.0",
     "oxlint": "1.63.0",
     "portless": "0.13.0",
     "postcss": "8.5.14",
@@ -50,6 +49,10 @@
   "overrides": {
     "three": "0.182.0"
   },
+  "engines": {
+    "bun": "1.4.4"
+  },
+  "packageManager": "bun@1.4.4",
   "patchedDependencies": {
     "three@0.182.0": "patches/three@0.182.0.patch",
     "detect-gpu@5.0.70": "patches/detect-gpu@5.0.70.patch"

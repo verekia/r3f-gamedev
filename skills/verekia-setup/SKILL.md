@@ -1,6 +1,6 @@
 ---
 name: verekia-setup
-description: Verekia's preferred project setup with Next.js Pages Router, Tailwind 4, oxfmt, oxlint, and TypeScript.
+description: Verekia's preferred project setup with Next.js Pages Router, Tailwind 4, bun fmt, bun check, oxlint, and TypeScript.
 ---
 
 # Verekia's Project Setup
@@ -12,10 +12,21 @@ Installation instructions and boilerplate for setting up a new R3F game project.
 ```json
 {
   "private": true,
+  "packageManager": "bun@1.4.4",
+  "engines": {
+    "bun": "1.4.4"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "serve out"
+    "start": "serve out",
+    "typecheck": "bun check",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "format": "bun fmt",
+    "format:check": "bun fmt --check",
+    "warden": "warden",
+    "all": "bun run format:check && bun run lint && bun run typecheck && bun run warden"
   },
   "dependencies": {
     "@react-three/drei": "11.0.0-alpha.4",
@@ -34,9 +45,8 @@ Installation instructions and boilerplate for setting up a new R3F game project.
     "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
     "@types/three": "0.182.0",
-    "@verekia/warden": "0.0.3",
+    "@verekia/warden": "0.0.6",
     "babel-plugin-react-compiler": "1.0.0",
-    "oxfmt": "0.48.0",
     "oxlint": "1.63.0",
     "portless": "0.13.0",
     "postcss": "8.5.6",
@@ -142,9 +152,10 @@ canvas {
 
 ## .oxfmtrc.json
 
+Config for `bun fmt` (Bun 1.4.4 reads `.oxfmtrc.json`; no `oxfmt` package needed).
+
 ```json
 {
-  "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "printWidth": 120,
   "tabWidth": 2,
   "useTabs": false,
